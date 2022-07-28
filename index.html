@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<title>Test delle Verginelle</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="favicon" href="favicon.ico">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="keywords" content="">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+		<style type="text/css">
+			html{
+			height: 100%;
+			}
+			body{
+				font-size: 20px;
+				font-family: 'Roboto', serif;
+				/*background-color: #D8C09F;*/
+				/*background-image: linear-gradient(#fff5e7, #D8C09F);*/
+	            background: linear-gradient(#fff5e7,#D8C09F) no-repeat center center fixed;
+	            background-image: url(sfondo.jpg);
+    			background-repeat: repeat;
+				color:#3F0800;
+				padding:10px;
+			}
+			/* HIDE RADIO */
+			.img-radio { 
+	  			position: absolute;
+	  			opacity: 0;
+	  			width: 0;
+	  			height: 0;
+			}
+
+			/* IMAGE STYLES */
+			.img-radio + img {
+			 	cursor: pointer;
+			 	padding: 30px;
+	    		margin: 10px;
+			}
+
+			/* CHECKED STYLES */
+			.img-radio:checked + img {
+	 	 		/*outline: 2px solid #f00;*/
+	 	 		border: 2px solid #f00;
+	 	 		border-radius: 4px;
+	 	 		margin: 8px;
+			}
+
+			#container{
+				background-color: #F2F2F2;
+				text-align: center;
+				margin: 0 auto;
+				border-radius: 25px;
+	  			/*border: 3px solid #722D05;*/
+	  			padding: 3px;
+	  			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	  			
+			}
+			form{
+				margin:0px;
+			}
+			#calculator{
+				padding: 20px;
+			}
+			#box{
+				margin-top: 50%;
+	    		margin-left: auto;
+
+	    		margin-right: auto;
+			   /* width: 90%; */
+			   /*margin-left: 10px;
+			   margin-right: 10px;*/
+			   max-width: 600px;
+			   /* position: absolute; */
+			   /* top: 40%; */
+			   /* left: 50%; */
+			   -ms-transform: translate(-50%, -50%);
+			   /* transform: translate(-50%, -50%); */
+			}
+			#backBtn{
+				width: 53px;
+    			border-radius: 70px;
+			}
+
+			/*
+			#start-button{
+				border-color: #3F0800;
+	    		border: 1px solid;
+	    		border-radius: 2px;
+	    		margin: auto;
+	    		width: 150px;
+	    		padding: 5px;
+	    		text-decoration: none;
+	    		color: #3F0800; 
+	    		background-image: linear-gradient(#fff5e7, #D8C09F);
+			}
+			#maggiorenne-button{
+				border-color: #3F0800;
+	    		border: 1px solid;
+	    		border-radius: 2px;
+	    		margin: auto;
+	    		width: 150px;
+	    		padding: 5px;
+	    		text-decoration: none;
+	    		color: #3F0800; 
+	    		background-image: linear-gradient(#fff5e7, #D8C09F);
+			}
+			.answer-button{
+				border-color: #3F0800;
+	    		border: 1px solid;
+	    		border-radius: 2px;
+	    		margin: auto;
+	    		margin-bottom: 10px;
+	    		width: 100px;
+	    		padding: 5px;
+	    		text-decoration: none;
+	    		color: #3F0800; 
+	    		background-image: linear-gradient(#fff5e7, #D8C09F);
+			}
+			#maggiorenne-button:visited{
+				border-color: #3F0800;
+	    		border: 1px solid;
+	    		border-radius: 2px;
+	    		margin: auto;
+	    		width: 120px;
+	    		padding: 5px;
+	    		text-decoration: none;
+	    		color: #3F0800; 
+	    		background-image: linear-gradient(#fff5e7, #D8C09F);
+			}
+			#maggiorenne-button:hover{
+				border-color: #3F0800;
+	    		border: 1px solid;
+	    		border-radius: 2px;
+	    		margin: auto;
+	    		width: 120px;
+	    		padding: 5px;
+	    		text-decoration: none;
+	    		color: #3F0800; 
+	    		background-image: linear-gradient(#fff5e7, #bb8d4e);
+			}
+			#start-button:visited{
+				border-color: #3F0800;
+	    		border: 1px solid;
+	    		border-radius: 2px;
+	    		margin: auto;
+	    		width: 100px;
+	    		padding: 5px;
+	    		text-decoration: none;
+	    		color: #3F0800; 
+	    		background-image: linear-gradient(#fff5e7, #D8C09F);
+			}
+			#start-button:hover{
+				border-color: #3F0800;
+	    		border: 1px solid;
+	    		border-radius: 2px;
+	    		margin: auto;
+	    		width: 100px;
+	    		padding: 5px;
+	    		text-decoration: none;
+	    		color: #3F0800; 
+	    		background-image: linear-gradient(#fff5e7, #bb8d4e);
+			}.answer-button:visited{
+				border-color: #3F0800;
+	    		border: 1px solid;
+	    		border-radius: 2px;
+	    		margin: auto;
+	    		margin-bottom: 10px;
+	    		width: 100px;
+	    		padding: 5px;
+	    		text-decoration: none;
+	    		color: #3F0800; 
+	    		background-image: linear-gradient(#fff5e7, #D8C09F);
+			}
+			.answer-button:hover{
+				border-color: #3F0800;
+	    		border: 1px solid;
+	    		border-radius: 2px;
+	    		margin: auto;
+	    		margin-bottom: 10px;
+	    		width: 100px;
+	    		padding: 5px;
+	    		text-decoration: none;
+	    		color: #3F0800; 
+	    		background-image: linear-gradient(#fff5e7, #bb8d4e);
+			}*/
+			#button{
+				border-color: #3F0800;
+	    		border: 1px solid;
+	    		border-radius: 2px;
+	    		margin: auto;
+	    		width: 100px;
+	    		padding: 5px;
+	    		text-decoration: none;
+	    		color: #3F0800; 
+	    		background-image: linear-gradient(#fff5e7, #D8C09F);
+			}
+			#button:visited{
+				border-color: #3F0800;
+	    		border: 1px solid;
+	    		border-radius: 2px;
+	    		margin: auto;
+	    		width: 100px;
+	    		padding: 5px;
+	    		text-decoration: none;
+	    		color: #3F0800; 
+	    		background-image: linear-gradient(#fff5e7, #D8C09F);
+			}
+			#button:hover{
+				border-color: #3F0800;
+	    		border: 1px solid;
+	    		border-radius: 2px;
+	    		margin: auto;
+	    		width: 100px;
+	    		padding: 5px;
+	    		text-decoration: none;
+	    		color: #3F0800; 
+	    		background-image: linear-gradient(#fff5e7, #bb8d4e);
+			}
+			.attribute-int{
+				font-size: 1.17em;
+				margin-top: 15px;
+				margin-bottom: 15px;
+			}
+			.attribute-opt{
+				font-size: 1.17em;
+				margin-top: 15px;
+				margin-bottom: 15px;
+			}
+			input[type="number"]{
+				font-family: 'Roboto', serif;
+				color: #3f0800;
+				font-size: 1.17em;
+				width: 50px;
+	    		height: 30px;
+	    		text-align: center;
+	    		border-color: #3F0800;
+				background-color: #f2f2f2;
+				border-radius: 10px;
+				box-shadow: #3F0800;
+				box-shadow: 1px 1px #3F0800;
+			}
+			select{
+				font-family: 'Roboto', serif;
+				color: #3f0800;
+				font-size: 1.17em;
+				width: 130px;
+	    		height: 30px;
+	    		text-align: center;
+	    		border-color: #3F0800;
+				background-color: #f2f2f2;
+				border-radius: 10px;
+				box-shadow: #3F0800;
+				box-shadow: 1px 1px #3F0800;
+			}
+			.attribute-rdo{
+				font-size: 1.17em;
+				margin-top: 15px;
+				margin-bottom: 15px;
+			}
+			#ig{
+				margin-top: 25px;
+			}
+			.error{
+				color: red;
+			}
+			.button {
+			    align-items: center;
+			    background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+			    border: 0;
+			    border-radius: 10px;
+			    box-sizing: border-box;
+			    color: #fff;
+			    cursor: pointer;
+			    display: flex;
+			    flex-direction: column;
+			    font-family: "Roboto",sans-serif;
+			    font-size: 16px;
+			    font-weight: 700;
+			    height: 54px;
+			    justify-content: center;
+			    letter-spacing: .4px;
+			    line-height: 1;
+			    max-width: 100%;
+			    padding-left: 20px;
+			    padding-right: 20px;
+			    padding-top: 3px;
+			    text-decoration: none;
+			    text-transform: uppercase;
+			    user-select: none;
+			    -webkit-user-select: none;
+			    touch-action: manipulation;
+				margin-bottom: 15px;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+	
+	<body>
+		<div id="box">
+		<div id="container" style="margin-bottom: 70px;">
+
+			<div class="ad" style="margin-top: 15px">
+			</div>
+
+				<form method="post" action="" autocomplete="off">
+					<div id="calculator">
+
+					<div id="maggiorenne">
+						<h2>Prima d'iniziare...</h2>
+						<div id="maggiorenne-button" class="button">SONO MAGGIORENNE</div>
+					</div>
+
+					<div id="welcome" style="display: none">
+						<h1>Il Test delle Verginelle</h1>
+						<div id="start-button" class="button">!! Inizia Qui !!</div>
+					</div>
+
+					<div id="questions" style="display: none">
+						<div id= "backBtn" class="button" style="display: none">⬅</div>
+						<p id="question"></p>
+						<div id= "y-answer" class="button">Si</div>
+						<div id= "n-answer" class="button">No</div>
+					</div>
+
+					</div>
+				</form>
+			<? endif; ?>
+		</div>
+
+			<div id="ad">
+			</div>
+
+		</div>
+		<script>
+		scores = [];
+		nQ = 0;
+		score = 100;
+		const questions = ["Hai mai tenuto per mano qualcuno romanticamente?",
+							"Hai mai avuto un appuntamento?",
+							"Hai mai avuto una relazione?",
+							"Hai mai ballato strusciandoti?",
+							"Hai mai baciato un non familiare?",
+							"Hai mai baciato un non familiare sulle labbra?",
+							"Hai mai baciato alla francese?",
+							"Hai mai baciato alla francese in pubblico?",
+							"Hai mai baciato sul collo?",
+							"Hai mai limonato da straiato?",
+							"Hai mai fatto o ricevuto un succhiotto?",
+							"Hai mai baciato/sei mai stata baciata sul seno?",
+							"Hai mai baciato qualcuno sotto la vita?",
+							"Hai mai limonato per più di due ore consecutive?",
+							"Hai mai giocato a un gioco che prevedeva lo stripping?",
+							"Hai mai visto/sei mai stato visto in un contesto sessuale?",
+							"Ti sei mai masturbato?",
+							"Ti sei masturbato con una foto o un video?",
+							"Ti sei masturbato mentre qualcun altro era nella stessa stanza?",
+							"Sei mai stato sorpreso a masturbarti?",
+							"Ti sei mai mastubato con un oggetto?",
+							"Hai mai visto o letto materiale pornografico?",
+							"Hai mai massaggiato/stato massaggiato sensualmente?",
+							"Hai mai riprodotto i movimenti del sesso mentre eri vestito?",
+							"Hai mai svestito/sei mai stato svestito da un MSP (membro del sesso preferito)?",
+							"Hai mai fatto la doccia con un MSP?",
+							"Hai mai palpato/ti hanno mai palpato il culo?",
+							"Hai mai palpato/ti hanno mai palpato il seno?",
+							"Hai mai palpato/ti hanno mai palpato i genitali?",
+							"Hai mai avuto o fatto venire le \"palle blu\"?",
+							"Hai mai avuto un orgasmo grazie alla manipolazione di qualcun altro?",
+							"Hai mai inviato un messaggio sessualmente esplicito?",
+							"Hai mai inviato o ricevuto foto sessualmente esplicite?",
+							"Hai mai scopato in video chat?",
+							"Hai mai tradito?",
+							"Hai mai acquistato contraccettivi?",
+							"Hai mai fatto sesso orale?",
+							"Hai mai/sei mai stato sculacciato sessualmente?",
+							"Hai mai fatto BDSM? ",
+							"Hai mai ingoiato/mangiato?",
+							"Hai mai usato un sex toy con un partner?",
+							"Hai mai passato la notte con un MSP?",
+							"Sei mai stato sorpreso mentre scopavi?",
+							"Hai mai cacciato un coinquilino per scopare?",
+							"Hai mai bevuto alcol?",
+							"Hai mai fatto giochi alcolici?",
+							"Ti sei mai ubriacato?",
+							"Hai mai finto di essere sobrio con genitori o insegnanti?",
+							"Hai mai avuto un blackuout da alcol?",
+							"Hai mai fumato tabacco?",
+							"Hai mai fumato marijuana?",
+							"Hai mai usato una droga più forte della marijuana?",
+							"Hai mai fatto uso di metanfetamine, crack, keta, tranquillanti o eroina?",
+							"Sei mai stato mandato dal preside?",
+							"Sei mai stato sospeso?",
+							"Hai mai urinato in pubblico?",
+							"Hai mai fatto il bagno nudo?",
+							"Hai mai corso nudo?",
+							"Hai mai visto una spogliarellista?",
+							"Ti hanno mai denunciato alla polizia?",
+							"Sei mai scappato dalla polizia?",
+							"La polizia ti ha mai interrogato?",
+							"La polizia ti ha mai ammanettato?",
+							"Sei mai stato arrestato?",
+							"Sei mai stato condannato?",
+							"Hai mai commesso un atto vandalico?",
+							"Hai mai scopato?",
+							"Hai mai scopato tre o più volte in una notte?",
+							"69 ?",
+							"Hai scopato 10 o più volte?",
+							"Hai mai scopato in quattro o più posizioni?",
+							"Hai mai scopato con uno sconosciuto o una persona che hai incontrato entro 24 ore?",
+							"Hai mai scopato in macchina?",
+							"Hai mai scopato all'aperto?",
+							"Hai mai scopato in pubblico?",
+							"Hai mai scopato in piscina o in una vasca idromassaggio?",
+							"Hai mai scopato in un letto che non apparteneva a te o al tuo partner?",
+							"Hai mai scopato mentre i tuoi o i suoi genitori erano nella stessa casa?",
+							"Hai mai scopato con altri nella stessa stanza?",
+							"Hai mai scopato in aereo?",
+							"Hai mai avuto una \"booty call\" senza essere in una relazione?",
+							"Hai mai viaggiato per almeno 100 Km per scopare?",
+							"Hai mai scopato qualcuno più grande di 3+ anni?",
+							"Hai mai scopato con un/a vergine?",
+							"Hai mai scopato senza preservativo?",
+							"Hai mai fatto un test per MST (malattie sessualmente trasmissibili)?",
+							"Hai mai avuto una MST?",
+							"Hai mai fatto un threesome?",
+							"Hai mai partecipato ad un'orgia?",
+							"Hai mai scopato con più di 2 persone in 24 ore?",
+							"Hai mai scopato più di 5 persone?",
+							"Hai mai/sei mai stato fotografato o filmato mentre scopavi?",
+							"Hai mai scopato durante il ciclo?",
+							"Hai mai fatto sesso anale?",
+							"Hai mai temuto una gravidanza?",
+							"Hai mai messo/sei mai stata messa incinta?",
+							"Hai mai pagato/sei mai stato pagato per scopare?",
+							"Hai mai guardato altri scopare dal vivo?",
+							"Hai mai commeso incesto?",
+							"Hai mai scopato un animale?"];
+		
+		document.getElementById("maggiorenne-button").onclick = function(){
+		 	document.getElementById("welcome").style.display = "block";
+		 	document.getElementById("maggiorenne").style.display = "none";
+		};
+
+		document.getElementById("start-button").onclick = function(){
+		 	document.getElementById("questions").style.display = "block";
+		 	document.getElementById("welcome").style.display = "none";
+		 	document.getElementById("question").innerHTML =questions[0];
+		};
+
+		document.getElementById("backBtn").onclick = function(){
+			if(nQ != 0){
+				scores.pop();
+				nQ --;
+				document.getElementById("question").innerHTML = questions[nQ];
+				if (nQ == 0){
+			 		document.getElementById("backBtn").style.display = "none";
+				}
+			}
+		};
+		document.getElementById("y-answer").onclick = function(){
+			scores.push(-1);
+			nQ ++;
+			if (nQ == questions.length){
+				document.getElementById("question").innerHTML = "Risultato: " + (scores.reduce((partialSum, a) => partialSum + a, 0)+100).toString();
+				document.getElementById("y-answer").style.display = "none";
+				document.getElementById("n-answer").style.display = "none";
+				document.getElementById("backBtn").style.display = "none";
+
+			}else{
+			 	document.getElementById("question").innerHTML = questions[nQ];
+			 	document.getElementById("backBtn").style.display = "grid";
+			}
+		 };
+		document.getElementById("n-answer").onclick = function(){
+			scores.push(0);
+			nQ ++;
+			if (nQ == questions.length){
+				document.getElementById("question").innerHTML = "Risultato: " + (scores.reduce((partialSum, a) => partialSum + a, 0)+100).toString();
+				document.getElementById("y-answer").style.display = "none";
+				document.getElementById("n-answer").style.display = "none";
+				document.getElementById("backBtn").style.display = "none";
+
+			}else{
+			 	document.getElementById("question").innerHTML = questions[nQ];
+			 	document.getElementById("backBtn").style.display = "grid";
+			}
+		 };
+		</script>
+	</body>
+</html>
