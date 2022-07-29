@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 	<head>
@@ -22,6 +21,7 @@
 
 		  gtag('config', 'G-FHM3KHXL15');
 		</script>
+		<script defer type="text/javascript" src="counter.js"></script>
 		<style type="text/css">
 			html{
 			height: 100%;
@@ -335,6 +335,9 @@
 						<div id= "y-answer" class="button">Si</div>
 						<div id= "n-answer" class="button">No</div>
 					</div>
+					<div id="result" style="display: none">
+						<h1>Il tuo risultato<br><span id='result-count'></span></h1>
+					</div>
 
 					</div>
 				</form>
@@ -476,11 +479,11 @@
 			nQ ++;
 			if (nQ == questions.length){
 				risultato = (scores.reduce((partialSum, a) => partialSum + a, 0)+100).toString();
-				gtag('event', 'risultato', {'risultato':risultato, JSON.stringify(Object.assign({}, scores))});
-				document.getElementById("question").innerHTML = "Risultato: " + risultato;
-				document.getElementById("y-answer").style.display = "none";
-				document.getElementById("n-answer").style.display = "none";
-				document.getElementById("backBtn").style.display = "none";
+				gtag('event', 'risultato', {'risultato':risultato});
+				
+				document.getElementById("questions").style.display = "none";
+				document.getElementById("result").style.display = "block";
+				showResult(risultato);
 
 			}else{
 			 	document.getElementById("question").innerHTML = questions[nQ];
@@ -492,16 +495,26 @@
 			nQ ++;
 			if (nQ == questions.length){
 				risultato = (scores.reduce((partialSum, a) => partialSum + a, 0)+100).toString();
-				gtag('event', 'risultato', {'risultato':risultato, JSON.stringify(Object.assign({}, scores))});
-				document.getElementById("question").innerHTML = "Risultato: " + risultato;document.getElementById("y-answer").style.display = "none";
-				document.getElementById("n-answer").style.display = "none";
-				document.getElementById("backBtn").style.display = "none";
+				gtag('event', 'risultato', {'risultato':risultato});
+				
+				document.getElementById("questions").style.display = "none";
+				document.getElementById("result").style.display = "block";
+				showResult(risultato);
 
 			}else{
 			 	document.getElementById("question").innerHTML = questions[nQ];
 			 	document.getElementById("backBtn").style.display = "grid";
 			}
 		 };
+			
+		function showResult(result){
+			const countUp = new CountUp('result-count', result);
+			if (!countUp.error) {
+				countUp.start();
+			} else {
+			console.error(countUp.error);
+			}
+		}
 		</script>
 	</body>
 </html>
