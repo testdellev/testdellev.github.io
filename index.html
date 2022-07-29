@@ -475,7 +475,9 @@
 			scores.push(-1);
 			nQ ++;
 			if (nQ == questions.length){
-				document.getElementById("question").innerHTML = "Risultato: " + (scores.reduce((partialSum, a) => partialSum + a, 0)+100).toString();
+				risultato = (scores.reduce((partialSum, a) => partialSum + a, 0)+100).toString();
+				gtag('event', 'risultato', {'risultato':risultato, JSON.stringify(Object.assign({}, scores))});
+				document.getElementById("question").innerHTML = "Risultato: " + risultato;
 				document.getElementById("y-answer").style.display = "none";
 				document.getElementById("n-answer").style.display = "none";
 				document.getElementById("backBtn").style.display = "none";
@@ -489,8 +491,9 @@
 			scores.push(0);
 			nQ ++;
 			if (nQ == questions.length){
-				document.getElementById("question").innerHTML = "Risultato: " + (scores.reduce((partialSum, a) => partialSum + a, 0)+100).toString();
-				document.getElementById("y-answer").style.display = "none";
+				risultato = (scores.reduce((partialSum, a) => partialSum + a, 0)+100).toString();
+				gtag('event', 'risultato', {'risultato':risultato, JSON.stringify(Object.assign({}, scores))});
+				document.getElementById("question").innerHTML = "Risultato: " + risultato;document.getElementById("y-answer").style.display = "none";
 				document.getElementById("n-answer").style.display = "none";
 				document.getElementById("backBtn").style.display = "none";
 
