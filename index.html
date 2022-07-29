@@ -525,7 +525,7 @@
 			if (nQ == questions.length){
 				risultato = (scores.reduce((partialSum, a) => partialSum + a, 0)+100).toString();
 				gtag('event', 'level_end', {'level_name':risultato});
-				
+				showLivello(scores.reduce((partialSum, a) => partialSum + a, 0)+100);
 				document.getElementById("questions").style.display = "none";
 				document.getElementById("result").style.display = "block";
 				showResult(risultato);
@@ -542,7 +542,7 @@
 			if (nQ == questions.length){
 				risultato = (scores.reduce((partialSum, a) => partialSum + a, 0)+100).toString();
 				gtag('event', 'level_end', {'level_name':risultato});
-				
+				showLivello(scores.reduce((partialSum, a) => partialSum + a, 0)+100);
 				document.getElementById("questions").style.display = "none";
 				document.getElementById("result").style.display = "block";
 				showResult(risultato);
