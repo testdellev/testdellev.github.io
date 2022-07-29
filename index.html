@@ -378,7 +378,8 @@
 						<progress value="0" max="100" class="grad">
 					</div>
 					<div id="result" style="display: none">
-						<h1>Il tuo risultato<br><span id='result-count'></span></h1>
+						<h1>Il tuo livello di purezza<br><br><span id='result-count'></span>/100</h1>
+						<p id="livello"></p>
 					</div>
 
 					</div>
@@ -563,6 +564,26 @@
 
 		function moveBar() {
 			document.getElementsByTagName("progress")[0].setAttribute("value", nQ);
+		}
+		const livelli = ["Non ci credo! Sei il diavolo 👹",//0
+						 "Chapeau! Hai tutto il mio rispetto 🫡",//1-25
+						 "Oh cazzo! Certo che ne hai combinate...😏",//25-35
+						 "Ci sei quasi!",//35-45
+						 "Siamo onesti, ti sai divertire ma ti dai anche dei limiti!",//45-60
+						 "Ok ok, not bad, possiamo ancora lavorarci ...",//60-75
+						 "Hei verginella, va\' che ti è caduta l'aureola!😇",//75-90
+						 "Non so se mi hai mentito ma nemmeno in paradiso si è così santi!"];//90-100
+
+		function showLivello(r){
+			livello = 0;
+			if(r>=1 && r<=25) {livello = 1;} else
+			if(r>25 && r<=35) {livello = 2;} else
+			if(r>35 && r<=45) {livello = 3;} else
+			if(r>45 && r<=60) {livello = 4;} else
+			if(r>60 && r<=75) {livello = 5;} else
+			if(r>75 && r<=90) {livello = 6;} else
+			if(r>90 && r<=100) {livello = 7;} else
+			document.getElementById("livello").innerHTML = livelli[livello];
 		}
 
 		</script>
